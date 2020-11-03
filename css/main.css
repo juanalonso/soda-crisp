@@ -1,3 +1,4 @@
+/*
  :root {
      --universal-margin: .25rem;
      --universal-padding: .5rem;
@@ -13,4 +14,11 @@
     width: 100%;
     text-align: left;
     max-width: 240px;
+ }
+ */
+
+ .button.main {
+    width:85%;
+    padding: 30px;
+    font-size: calc(1.25rem * var(--heading-ratio));
  }
