@@ -17,8 +17,16 @@
  }
  */
 
- .button.main {
-    width:85%;
-    padding: 30px;
+.button.main {
+    width: 85%;
+    padding: 20px;
     font-size: calc(1.25rem * var(--heading-ratio));
- }
+}
+
+.responsive-label {
+    align-items: center;
+}
+
+.responsive-label.col-md-3 {
+    text-align: right;
+}

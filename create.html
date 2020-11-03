@@ -2,16 +2,79 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>MPC</title>
+    <title>SodaCrisp - Create experiment</title>
     <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
     <link rel="stylesheet" href="css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
-    <script src="scripts.js"></script>
+    <script src="js/create.js"></script>
 </head>
 
 <body>
+    <div class="container">
+        <h1>SodaCrisp</h1>
+        <h5><a href="index.html">Main</a> > Create experiment</h5>
+        <form>
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3"><label for="expname">Experiment name</label></div>
+                <div class="col-sm-12 col-md"><input type="text" id="expname" placeholder="Experiment name" style="width:85%;"></div>
+            </div>
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3"><label for="lopass" class="">Low-pass</label></div>
+                <div class="col-sm-12 col-md">
+                    <input type="radio" name="freqs" value="lopass" autocomplete="off" id="lopass">
+                </div>
+            </div>
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3"><label for="hipass" class="">High-pass</label></div>
+                <div class="col-sm-12 col-md">
+                    <input type="radio" name="freqs" value="hipass" autocomplete="off" id="hipass">
+                </div>
+            </div>
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3"><label for="freqgain1">Freq. gain in dBs</label></div>
+                <div class="col-sm-12 col-md">
+                    <input type="text" placeholder="15" id="freqgain1" style="width:15%;">
+                    <input type="text" placeholder="0" id="freqgain2" style="width:15%;">
+                    <input type="text" placeholder="-15" id="freqgain3" style="width:15%;">
+                </div>
+            </div>
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3"><label for="finalgain1">Final gain in dBs</label></div>
+                <div class="col-sm-12 col-md">
+                    <input type="text" placeholder="-40" id="finalgain1" style="width:15%;">
+                    <input type="text" placeholder="-20" id="finalgain2" style="width:15%;">
+                    <input type="text" placeholder="0" id="finalgain3" style="width:15%;">
+                </div>
+            </div>
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3"><label for="measname">Measurement</label></div>
+                <div class="col-sm-12 col-md"><input type="text" id="measname" placeholder="Crispness, Carbonation..." style="width:85%;"></div>
+            </div>
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3"><label for="scalemin">Scale min. name</label></div>
+                <div class="col-sm-12 col-md"><input type="text" id="scalemin" placeholder="Soft / Stale" style="width:85%;"></div>
+            </div>
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3"><label for="scalemax">Scale max. name</label></div>
+                <div class="col-sm-12 col-md"><input type="text" id="scalemax" placeholder="Crisp / Fresh" style="width:85%;"></div>
+            </div>
+            <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3"><label for="repetitions">Number of repetitions</label></div>
+                <div class="col-sm-12 col-md"><input type="text" id="repetitions" placeholder="1" style="width:85%;"></div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-sm-12" style="display:flex; justify-content:flex-end; ">
+                <a href="#" class="button tertiary">Create experiment</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>
+            <small><a href="mailto:jalons19@student.aau.dk"><span class="icon-mail"></span>Juan Alonso</a><br>
+                Multimodal Perception and Cognition, Sound and Music Computing, Autumn 2020, Aalborg University.</small></p>
+    </footer>
 </body>
 
 </html>
