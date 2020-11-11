@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
     <link rel="stylesheet" href="css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <script src="js/index.js"></script>
 </head>
 
 <body>
@@ -14,7 +16,12 @@
         <h5>A framework for auditory-cue experiments</h5>
         <div class="row cols-sm-12 cols-md-4">
             <div><a href="create.html" class="button primary main">Create experiment</a></div>
-            <div><a href="run.html" class="button primary main">Run tests</a></div>
+            <div>
+                <a href="" class="button primary main" id="dropzone">Run tests</a>
+                <h2 id="expname"></h2>
+                <p id="measname"></p>
+                <a href="run.html" class="button primary">RUN</a>
+            </div>
             <div><a href="export.html" class="button primary main">Export results</a></div>
         </div>
     </div>
