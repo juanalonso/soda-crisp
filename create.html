@@ -16,19 +16,23 @@
         <h5><a href="index.html">Main</a> > Create experiment</h5>
         <form>
             <div class="row responsive-label">
+                <div class="col-sm-12 col-md-3"><label for="expid">Experiment ID</label></div>
+                <div class="col-sm-12 col-md"><input type="text" id="expid" placeholder="Experiment ID" style="width:85%;"></div>
+            </div>
+            <div class="row responsive-label">
                 <div class="col-sm-12 col-md-3"><label for="expname">Experiment name</label></div>
                 <div class="col-sm-12 col-md"><input type="text" id="expname" placeholder="Experiment name" style="width:85%;"></div>
             </div>
             <div class="row responsive-label">
                 <div class="col-sm-12 col-md-3"><label for="lopass" class="">Low-pass</label></div>
                 <div class="col-sm-12 col-md">
-                    <input type="radio" name="freqs" value="lopass" autocomplete="off" id="lopass">
+                    <input type="radio" name="freqs" value="lopass" autocomplete="off">
                 </div>
             </div>
             <div class="row responsive-label">
                 <div class="col-sm-12 col-md-3"><label for="hipass" class="">High-pass</label></div>
                 <div class="col-sm-12 col-md">
-                    <input type="radio" name="freqs" value="hipass" autocomplete="off" id="hipass">
+                    <input type="radio" name="freqs" value="hipass" autocomplete="off" checked>
                 </div>
             </div>
             <div class="row responsive-label">
@@ -66,7 +70,7 @@
         </form>
         <div class="row">
             <div class="col-sm-12" style="display:flex; justify-content:flex-end; ">
-                <a href="#" class="button tertiary">Create experiment</a>
+                <a href="#" class="button tertiary" id="butCreate">Create experiment</a>
             </div>
         </div>
     </div>
