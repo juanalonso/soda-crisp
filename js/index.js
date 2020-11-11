@@ -1,5 +1,5 @@
 let dropzone;
-let experiment, expname, measname;
+let experiment, expname;
 
 
 function setup() {
@@ -10,23 +10,28 @@ function setup() {
     dropzone.drop(gotFile, unhighlight);
 
     expname = select('#expname');
-    measname = select('#measname');
+    expname.mousePressed(runExperiment)
 
+}
+
+
+function runExperiment() {
+    window.open('run.html', '_self');
 }
 
 
 function gotFile(file) {
     experiment = file.data;
-    print(experiment);
-    expname.html(experiment.expname + '<small>' + experiment.expid + '</small>');
-    measname.html(experiment.measname);
-
+    expname.html('Run ' + experiment.expname + '<br\><small>' + experiment.measname + '</small>');
+    expname.removeClass('hidden')
 }
 
 function highlight() {
     dropzone.style('background-color', '#308732')
+    dropzone.style('color', 'var(--button-back-color)')
 }
 
 function unhighlight() {
-    dropzone.style('background-color', '#1976d2')
+    dropzone.style('background-color', 'var(--back-color)')
+    dropzone.style('color', 'var(--button-fore-color)')
 }

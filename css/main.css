@@ -18,9 +18,16 @@
  */
 
 .button.main {
-    width: 85%;
-    padding: 20px;
-    font-size: calc(1.25rem * var(--heading-ratio));
+    width: 95%;
+    padding: 40px 15px;
+}
+
+#dropzone {
+    border: 0.125rem solid #ddd;
+    background: var(--back-color);
+    color: var(--secondary-fore-color);
+    transition: background 0.05s;
+    cursor: default !important;
 }
 
 .responsive-label {

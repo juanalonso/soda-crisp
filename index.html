@@ -14,15 +14,22 @@
     <div class="container">
         <h1>SodaCrisp</h1>
         <h5>A framework for auditory-cue experiments</h5>
-        <div class="row cols-sm-12 cols-md-4">
-            <div><a href="create.html" class="button primary main">Create experiment</a></div>
-            <div>
-                <a href="" class="button primary main" id="dropzone">Run tests</a>
-                <h2 id="expname"></h2>
-                <p id="measname"></p>
-                <a href="run.html" class="button primary">RUN</a>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <button class="button primary main">Create experiment</button>
             </div>
-            <div><a href="export.html" class="button primary main">Export results</a></div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <button class="button main" id="dropzone">Drop an experiment file here to run it</button>
+            </div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <button class="button primary main hidden" id="expname">RUN</a>
+            </div>
+            <div class="col-sm-3"></div>
         </div>
     </div>
     <footer>
