@@ -17,6 +17,35 @@
     <div class="container">
         <h1>SodaCrisp</h1>
         <h5><a href="index.html">Main</a> > Run experiment</h5>
+        <div id="step1">
+            <h1 id="expname"></h1>
+            <button id="butstep1">Start test</button>
+        </div>
+        <div id="step2" class="hidden">
+            <h4 id="measname"></h4>
+            <p id="scalemin"></p>
+            <p id="scalemax"></p>
+            <input type="range" id="expid" min="0" max="4" step="1" value="2">
+            <button id="butstep2">Save</button>
+        </div>
+        <div id="step3" class="hidden">
+            <form>
+                <div class="row responsive-label">
+                    <div class="col-sm-12 col-md-3"><label for="expid">Age</label></div>
+                    <div class="col-sm-12 col-md"><input type="text" id="subage" placeholder="Age" style="width:85%;"></div>
+                </div>
+                <div class="row responsive-label">
+                    <div class="col-sm-12 col-md-3"><label for="expname">Gender</label></div>
+                    <div class="col-sm-12 col-md"><input type="text" id="subgender" placeholder="Gender" style="width:85%;"></div>
+                </div>
+            </form>
+            <button id="butstep3">Next 3</button>
+        </div>
+        <div id="step4" class="hidden">
+            thanks and return
+            <button id="butstep4_main">Go to main</button>
+            <button id="butstep4_repeat">Next subject</button>
+        </div>
     </div>
     <footer>
         <p>
