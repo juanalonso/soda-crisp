@@ -47,7 +47,9 @@ function saveForm() {
         saveJSON(fields, fields.expid + '.json');
     }
 
-    delete  fields.freqs
+    delete  fields.freqs;
+
+    window.open('index.html', '_self');
 }
 
 
