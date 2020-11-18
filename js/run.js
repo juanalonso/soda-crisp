@@ -21,6 +21,7 @@ function setup() {
     session.results = [];
 
     select('#expname').html(config.expname);
+    select('#measname').html(config.measname);
 
     select('#butstep1').mousePressed(goToStep2);
     select('#butstep3').mousePressed(goToStep4);

@@ -18,9 +18,28 @@
  */
 
 .button.main {
-    width: 95%;
+    width: 100%;
     padding: 40px 15px;
 }
+
+.vertical {
+    padding: 20px 15px;
+}
+
+
+.button.test {
+    width: 100%;
+    padding: 10px 10px;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.text-center{
+    text-align: center;
+}
+
 
 #dropzone {
     border: 0.125rem solid #ddd;
