@@ -1,5 +1,5 @@
 let dropzone;
-let experiment, expname;
+let experiment, runexp, createexp;
 
 
 function setup() {
@@ -9,11 +9,18 @@ function setup() {
     dropzone.dragLeave(unhighlight);
     dropzone.drop(gotFile, unhighlight);
 
-    expname = select('#expname');
-    expname.mousePressed(runExperiment)
+    createexp = select('#createexp');
+    createexp.mousePressed(createExperiment)
+
+    runexp = select('#runexp');
+    runexp.mousePressed(runExperiment)
 
 }
 
+
+function createExperiment() {
+    window.open('create.html', '_self');
+}
 
 function runExperiment() {
     window.open('run.html', '_self');
@@ -22,8 +29,8 @@ function runExperiment() {
 
 function gotFile(file) {
     experiment = file.data;
-    expname.html('Run ' + experiment.expname + '<br\><small>' + experiment.measname + '</small>');
-    expname.removeClass('hidden')
+    runexp.html('Run ' + experiment.expname + '<br\><small>' + experiment.measname + '</small>');
+    runexp.removeClass('hidden')
 }
 
 function highlight() {
