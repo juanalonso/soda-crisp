@@ -5,6 +5,13 @@ let currentTest;
 let userResults;
 let session = {};
 
+//https://en.wikipedia.org/wiki/Octave_band
+let noise, eq, fft;
+let eqAmpState = 0;
+let eqAmp = 5;
+let UAStarted = false;
+
+
 let butstep2;
 
 function preload() {
@@ -12,6 +19,21 @@ function preload() {
 }
 
 function setup() {
+
+    getAudioContext().suspend();
+    eq = new p5.EQ(8);
+    for (let f = 36; f <= 43; f++) {
+        eq.bands[f - 36].freq(pow(10, 0.1 * f))
+        //print(pow(10, 0.1 * f))
+    }
+    noise = new p5.Noise();
+    noise.amp(0.01);
+    noise.disconnect();
+    noise.connect(eq);
+    fft = new p5.FFT();
+    fft.setInput(eq);
+
+    let cnv = createCanvas(300, 300);
 
     session.expid = config.expid;
     session.expname = config.expname;
@@ -37,6 +59,20 @@ function setup() {
 
 }
 
+function draw() {
+
+    let spectrum = fft.analyze();
+
+    background(30, 30, 40);
+    noStroke();
+    fill(255, 100, 205);
+    for (let i = 0; i < spectrum.length; i++) {
+        let x = map(i, 0, spectrum.length, 0, width);
+        let h = -height + map(spectrum[i], 0, 255, height, 0);
+        rect(x, height, width / spectrum.length, h)
+    }
+}
+
 function initTest() {
     currentTest = 0;
     tests = [];
@@ -56,8 +92,19 @@ function initTest() {
 
 }
 
+function initAudio() {
+    if (!UAStarted) {
+        userStartAudio();
+        UAStarted = true;
+        print("User Audio started");
+        noise.start();
+    }
+}
+
 function goToStep2() {
     initTest();
+    initAudio();
+    setAudioConfig();
     updateButtonCounter();
     select('#step2').removeClass('hidden');
     select('#step1').addClass('hidden');
@@ -90,19 +137,30 @@ function goToStep1() {
 }
 
 
-function endSession(){
+function endSession() {
     d = new Date();
     saveJSON(session, config.expid + '_' + d.getTime() + '_data.json');
     window.open('index.html', '_self');
 }
 
 function nextConfig() {
-    tests[currentTest].response = Math.floor(Math.random() * 5)
+    tests[currentTest].response = expid.value;
     currentTest++;
+    setAudioConfig();
     if (currentTest >= 9 * config.repetitions) {
         goToStep3();
+    } else {
+        updateButtonCounter();
     }
-    updateButtonCounter();
+}
+
+function setAudioConfig() {
+    eqAmpState = (eqAmpState + 1) % 3;
+    print("Band " + eqAmpState);
+    for (let i = 0; i < eq.bands.length; i++) {
+        eq.bands[i].gain(eqAmp * (eqAmpState - 1));
+    }
+
 }
 
 function updateButtonCounter() {
