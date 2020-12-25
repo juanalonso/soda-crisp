@@ -34,7 +34,10 @@ function setup() {
     for (let f = 0; f < 8; f++) {
         eq1.bands[f].freq(pow(10, 0.1 * (f + 28)))
         eq2.bands[f].freq(pow(10, 0.1 * (f + 28 + 8)))
+        eq1.bands[f].res(10);
+        eq2.bands[f].res(1);
     }
+    eq2.bands[7].res(0.01);
 
 
     fft = new p5.FFT();
@@ -42,7 +45,7 @@ function setup() {
     noise.connect(eq1);
     //filter.connect(eq1);
     eq1.connect(eq2);
-    //fft.setInput(eq2);
+    fft.setInput(eq2);
 
 
     let cnv = createCanvas(1024, 300);
@@ -160,10 +163,10 @@ function endSession() {
 function nextConfig() {
     tests[currentTest].response = expid.value;
     currentTest++;
-    setEqConfig();
-    if (currentTest >= 9 * config.repetitions - 1) {
+    if (currentTest >= 9 * config.repetitions) {
         goToStep3();
     } else {
+        setEqConfig();
         updateButtonCounter();
     }
 }
@@ -175,6 +178,7 @@ function setEqConfig() {
     //print("Band " + eqAmpState);
     for (let i = 0; i < 8; i++) {
         eq2.bands[i].gain(int(tests[currentTest].freqgain));
+        //eq2.bands[i].gain(i == currentTest ? 48 : -24);
         if (i >= 6) {
             eq1.bands[i].gain(int(tests[currentTest].freqgain));
         }
