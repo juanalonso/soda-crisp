@@ -5,7 +5,7 @@ let currentTest;
 let userResults;
 let session = {};
 
-let noise, filter, fft;
+let filter, fft, mic;
 let UAStarted = false;
 
 
@@ -19,9 +19,7 @@ function setup() {
 
     getAudioContext().suspend();
 
-    noise = new p5.Noise();
-    noise.amp(0.01);
-    noise.disconnect();
+    mic = new p5.AudioIn();
 
     filter = new p5.Filter();
     filter.setType('highshelf');
@@ -29,10 +27,10 @@ function setup() {
 
     fft = new p5.FFT();
 
-    noise.connect(filter);
+    mic.connect(filter);
     fft.setInput(filter);
 
-    let cnv = createCanvas(1024, 300);
+    let cnv = createCanvas(600, 300);
 
     session.expid = config.expid;
     session.expname = config.expname;
@@ -96,14 +94,14 @@ function initAudio() {
         userStartAudio();
         UAStarted = true;
         print("User Audio started");
-        noise.start();
+        mic.start();
     }
 }
 
 function goToStep2() {
     initTest();
     initAudio();
-    setFilterConfig();
+    setFilterGainConfig();
     updateButtonCounter();
     select('#step2').removeClass('hidden');
     select('#step1').addClass('hidden');
@@ -150,12 +148,12 @@ function nextConfig() {
     if (currentTest >= 9 * config.repetitions) {
         goToStep3();
     } else {
-        setFilterConfig();
+        setFilterGainConfig();
         updateButtonCounter();
     }
 }
 
-function setFilterConfig() {
+function setFilterGainConfig() {
     print("Current test: ", currentTest);
     print(tests[currentTest]);
     filter.gain(int(tests[currentTest].freqgain));
