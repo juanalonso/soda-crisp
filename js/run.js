@@ -95,6 +95,7 @@ function initAudio() {
         UAStarted = true;
         print("User Audio started");
         mic.start();
+        mic.amp(1);
     }
 }
 
@@ -154,9 +155,14 @@ function nextConfig() {
 }
 
 function setFilterGainConfig() {
+
     print("Current test: ", currentTest);
     print(tests[currentTest]);
+
     filter.gain(int(tests[currentTest].freqgain));
+    vol = map(int(tests[currentTest].finalgain),-60,0,0,1);
+    mic.amp(vol,0);
+    //print(vol);
 }
 
 function updateButtonCounter() {
