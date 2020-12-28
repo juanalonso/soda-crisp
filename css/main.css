@@ -57,6 +57,12 @@
     text-align: right;
 }
 
+#fft {
+    justify-content: center;
+    display:flex;
+    margin-bottom: 15px;
+}
+
 /*
 #dropzone {
     padding: 24px;

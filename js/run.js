@@ -30,12 +30,13 @@ function setup() {
     filter.setType(config.freqs == 'hipass' ? 'highshelf' : 'lowshelf');
     filter.freq(2000);
 
-    fft = new p5.FFT();
+    fft = new p5.FFT(0.8, 32);
 
     mic.connect(filter);
     fft.setInput(filter);
 
-    let cnv = createCanvas(600, 300);
+    let cnv = createCanvas(500, 100);
+    cnv.parent('fft');
 
     session.expid = config.expid;
     session.expname = config.expname;
@@ -65,9 +66,9 @@ function draw() {
 
     let spectrum = fft.analyze();
 
-    background(30, 30, 40);
+    background('#14213d');
     noStroke();
-    fill(255, 100, 205);
+    fill('#fca311');
     for (let i = 0; i < spectrum.length; i++) {
         let x = map(i, 0, spectrum.length, 0, width);
         let h = -height + map(spectrum[i], 0, 255, height, 0);
