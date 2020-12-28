@@ -12,7 +12,12 @@ let UAStarted = false;
 let butstep2;
 
 function preload() {
-    config = loadJSON('data/3e0617.json')
+    let params = getURLParams();
+    if (params.id !== undefined) {
+        config = loadJSON('data/'+params.id+'.json')
+    } else {
+        config = loadJSON('data/3e0617.json')
+    }
 }
 
 function setup() {
@@ -22,7 +27,7 @@ function setup() {
     mic = new p5.AudioIn();
 
     filter = new p5.Filter();
-    filter.setType('highshelf');
+    filter.setType(config.freqs == 'hipass' ? 'highshelf' : 'lowshelf');
     filter.freq(2000);
 
     fft = new p5.FFT();
@@ -160,8 +165,8 @@ function setFilterGainConfig() {
     print(tests[currentTest]);
 
     filter.gain(int(tests[currentTest].freqgain));
-    vol = map(int(tests[currentTest].finalgain),-60,0,0,1);
-    mic.amp(vol,0);
+    vol = map(int(tests[currentTest].finalgain), -60, 0, 0, 1);
+    mic.amp(vol, 0);
     //print(vol);
 }
 

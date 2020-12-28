@@ -31,7 +31,7 @@ function gotFile(file) {
     experiment = file.data;
     //runexp.html('Run ' + experiment.expname + '<br\><small>' + experiment.measname + '</small>');
     //runexp.removeClass('hidden')
-    window.open('run.html', '_self');
+    window.open('run.html?id='+experiment.expid, '_self');
 }
 
 function highlight() {
