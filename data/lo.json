@@ -1,0 +1,15 @@
+{
+  "expid": "lo",
+  "expname": "Crispness-Low pass",
+  "freqgain1": "15",
+  "freqgain2": "0",
+  "freqgain3": "-15",
+  "finalgain1": "-40",
+  "finalgain2": "-20",
+  "finalgain3": "0",
+  "measname": "Crunchiness of chips",
+  "scalemin": "Soft / Soggy / Stale",
+  "scalemax": "Crisp / Crunchy / Fresh",
+  "repetitions": "2",
+  "freqs": "lopass"
+}

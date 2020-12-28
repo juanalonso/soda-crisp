@@ -1,0 +1,15 @@
+{
+  "expid": "3e0617",
+  "expname": "Crispness-1",
+  "freqgain1": "12",
+  "freqgain2": "0",
+  "freqgain3": "-12",
+  "finalgain1": "-40",
+  "finalgain2": "-20",
+  "finalgain3": "0",
+  "measname": "Crunchiness of chips",
+  "scalemin": "Soft / Soggy / Stale",
+  "scalemax": "Crisp / Crunchy / Fresh",
+  "repetitions": "1",
+  "freqs": "hipass"
+}
