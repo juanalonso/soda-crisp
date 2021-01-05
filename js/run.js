@@ -166,9 +166,8 @@ function setFilterGainConfig() {
     print(tests[currentTest]);
 
     filter.gain(int(tests[currentTest].freqgain));
-    vol = map(int(tests[currentTest].finalgain), -60, 0, 0, 1);
+    vol = Math.pow(2,int(tests[currentTest].finalgain)/6);
     mic.amp(vol, 0);
-    //print(vol);
 }
 
 function updateButtonCounter() {
